@@ -23,7 +23,7 @@ RatingTable::~RatingTable()
 
 void RatingTable::display() const
 {
-    std::cout << "\n--------------------------------------------------------------------------------\n";
+    std::cout << "\n================================================================================\n";
     std::cout << std::setw(15) << "Contestant";
     for ( Race* race : ptrRaceList->getVectPtrRaces() )
     {
@@ -32,9 +32,12 @@ void RatingTable::display() const
     }
     std::cout << std::setw(15) << "Points" << std::endl;
 
+    std::cout << "================================================================================\n";
+
     for (RatingRow* row : vectRatingRows)
     {
         row->display();
+        std::cout << "--------------------------------------------------------------------------------\n";
     }
-    std::cout << "--------------------------------------------------------------------------------\n\n";
+    std::cout << std::endl;
 }
