@@ -69,7 +69,7 @@ void UserList::readFromFile()
 
     if (!infile.is_open())
     {
-        std::cout << "Памылка! Базы даных карыстальнікаў не існуе!\n";
+        std::cout << "Error! A database of users doesn't exist!\n";
     }
     else
     {

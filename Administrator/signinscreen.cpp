@@ -38,7 +38,7 @@ void SignInScreen::interact()
         }
         else
         {
-            std::cout << "Вы ўвялі няправільныя логін і пароль.\n";
+            std::cout << "Wrong login or password.\n";
         }
     }
 }

@@ -10,13 +10,13 @@ ContestantInputScreen::ContestantInputScreen(ContestantList* ptrContList) :
 
 void ContestantInputScreen::getContestant()
 {
-    std::cout << "Увядзіце імя спаборніка: ";
+    std::cout << "Enter contestant's name: ";
     getLine(name);
-    std::cout << "Увядзіце краіну спаборніка: ";
+    std::cout << "Enter contestant's country: ";
     getLine(country);
 
     Contestant* ptrContestant = new Contestant(name, country);
     ptrContestantList->insertContestant(ptrContestant);
 
-    std::cout << "Спаборнік паспяхова дабаўлены!\n";
+    std::cout << "Contestant is added.\n";
 }

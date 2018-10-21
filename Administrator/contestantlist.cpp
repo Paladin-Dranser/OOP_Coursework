@@ -24,7 +24,7 @@ void ContestantList::display() const
 {
     if (setPtrContestants.empty())
     {
-        std::cout << "***Няма спаборнікаў***\n";
+        std::cout << "***No contestants***\n";
     }
     else
     {
@@ -46,12 +46,12 @@ void ContestantList::insertContestant(Contestant* ptrCont)
 void ContestantList::editContestant(Contestant* cont)
 {
     std::string name;
-    std::cout << "Увядзіце новае імя спаборніка: ";
+    std::cout << "Enter new contestant's name: ";
     getLine(name);
     cont->setName(name);
 
     std::string country;
-    std::cout << "Увядзіце новую назву краіны: ";
+    std::cout << "Enter new contestant's name: ";
     getLine(country);
     cont->setCountry(country);
 }
@@ -77,7 +77,7 @@ void ContestantList::readFromFile()
 
     if (!infile.is_open())
     {
-        std::cout << "Памылка! Базы даных спаборнікаў не існуе!\n";
+        std::cout << "Error! DataBase doesn't exist!\n";
     }
     else
     {

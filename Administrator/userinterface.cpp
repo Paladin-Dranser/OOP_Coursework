@@ -26,20 +26,20 @@ void UserInterface::interact()
 
     while (true)
     {
-        std::cout << "Kалі ласка, націсніце клавішу:\n"
-                  << "\t'a' для кіравання карыстальнікаў;\n\n"
-                  << "\t'i' для ўводу даных;\n"
-                  << "\t'e' для рэдагавання даных;\n"
-                  << "\t'd' для прагляду рэйтынгу;\n"
-                  << "\t'q' для выхаду;\n";
+        std::cout << "Please, press a key:\n"
+                  << "\t'a' to change users' information;\n"
+                  << "\t'i' to input data;\n"
+                  << "\t'e' to edit data;\n"
+                  << "\t'd' to display data;\n"
+                  << "\t'q' to exit;\n";
         ch = getChar();
 
         if (ch == 'a')
         {
             std::cout << "'d' to display users;\n"
-                      << "'a' для дабаўлення карыстальніка;\n"
-                      << "'e' для рэдагавання карыстальніка;\n"
-                      << "'r' для выдалення карыстальніка;\n";
+                      << "'a' to add an user;\n"
+                      << "'e' to edit an user;\n"
+                      << "'r' to remove an user;\n";
             ch = getChar();
 
             switch (ch)
@@ -64,13 +64,14 @@ void UserInterface::interact()
                 break;
             default:
                 std::cout << "Невядомая функцыя!\n";
+                std::cout << "Incorrect function!\n";
                 break;
             }
         }
         else if (ch == 'i')
         {
-            std::cout << "'c' для дабаўлення спаборніка;\n";
-            std::cout << "'r' для дабаўлення гонкі;\n";
+            std::cout << "'c' to add a contestant;\n"
+                      << "'r' to add a race;\n";
             ch = getChar();
 
             switch (ch)
@@ -86,15 +87,15 @@ void UserInterface::interact()
                 delete ptrRaceInputScreen;
                 break;
             default:
-                std::cout << "Невядомая фунцыя.\n";
+                std::cout << "Incorrect function.\n";
                 break;
             }
         }
         else if (ch == 'e')
         {
-           std::cout << "'c' для рэдагавання даных спаборніка;\n"
-                     << "'r' для рэдагавання даных пра гонку;\n"
-                     << "'d' для выдалення даных;\n";
+           std::cout << "'c' to edit contestant's data;\n"
+                     << "'r' to edit data of race;\n"
+                     << "'d' to remove contestant's data or data of race;\n";
            ch = getChar();
 
            switch (ch)
@@ -110,8 +111,8 @@ void UserInterface::interact()
                delete ptrRaceEditScreen;
                    break;
                case 'd':
-                   std::cout << "'c' для выдалення спаборніка;\n"
-                             << "'r' для выдалення гонкі;\n";
+                   std::cout << "'c' to remove a contestant;\n"
+                             << "'r' to remove a race;\n";
                    ch = getChar();
                    if (ch == 'c')
                    {
@@ -124,20 +125,20 @@ void UserInterface::interact()
                        ptrRaceRemoveScreen = new RaceRemoveScreen(ptrRaceList);
                        ptrRaceRemoveScreen->removeRace();
                            delete ptrRaceRemoveScreen;
-                       }
-                       else
-                           std::cout << "Невядомая функцыя.\n";
-                       break;
-                   default:
-                       std::cout << "Невядомая фунцыя.\n";
-                       break;
+                   }
+                   else
+                       std::cout << "Incorrect function.\n";
+                   break;
+               default:
+                   std::cout << "Incorrect function.\n";
+                   break;
             }
         }
         else if (ch == 'd')
         {
-            std::cout << "'t' для вываду агульнага рэйтынгу Кубка Свету;\n"
-                      << "'c' для вываду інфармацыі пра спаборнікаў;\n"
-                      << "'r' для вываду інфармацыі пра гонкі;\n";
+            std::cout << "'t' to display The World Cup Rating Table;\n"
+                      << "'c' to display contestants' data;\n"
+                      << "'r' to display data of races;\n";
             ch = getChar();
 
             switch (ch)
@@ -154,7 +155,7 @@ void UserInterface::interact()
                 ptrRaceList->display();
                 break;
             default:
-                std::cout << "Невядомая фунцыя.\n";
+                std::cout << "Incorrect function.\n";
                 break;
             }
         }
@@ -167,6 +168,8 @@ void UserInterface::interact()
             return;
         }
         else
-            std::cout << "Невядомая функцыя. Націскайце толькі 'i', 'd', 'q'!\n";
+        {
+            std::cout << "Incorrect function.\n";
+        }
     }
 }

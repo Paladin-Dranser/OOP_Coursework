@@ -14,7 +14,7 @@ void ContestantEditScreen::editContestant()
 {
     ptrContestantList->display();
 
-    std::cout << "Увядзіце нумар спаборніка, даныя каторага будуць рэдагавацца: ";
+    std::cout << "Enter contestant's id to edit his date: ";
     unsigned id;
     std::cin >> id;
     std::cin.ignore(80, '\n');
@@ -23,5 +23,5 @@ void ContestantEditScreen::editContestant()
     std::advance(iter, id - 1);
 
     ptrContestantList->editContestant(*iter);
-    std::cout << "Даныя спаборніка былі паспяхова адрэдагаваныя.\n";
+    std::cout << "Contestant's data is edited.\n";
 }

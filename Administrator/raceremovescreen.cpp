@@ -10,7 +10,7 @@ void RaceRemoveScreen::removeRace()
 {
     ptrRaceList->display();
 
-    std::cout << "Увядзіце нумар гонкі на выдаленне: ";
+    std::cout << "Enter an id of race to remove it: ";
     unsigned id;
     std::cin >> id;
     std::cin.ignore(80, '\n');

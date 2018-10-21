@@ -10,11 +10,11 @@ RaceInputScreen::RaceInputScreen(RaceList* ptrRaceLst, ContestantList *ptrContes
 
 void RaceInputScreen::getRace()
 {
-    std::cout << "Увядзіце тып гонкі: ";
+    std::cout << "Enter a type of race: ";
     getLine(type);
-    std::cout << "Увядзіце вынікі гонкі:\n";
+    std::cout << "Enter result of race:\n";
     Race* ptrRace = new Race(type, ptrContestantList);
     ptrRace->setResult();
     ptrRaceList->insertRace(ptrRace);
-    std::cout << "Гонка паспяхова дабаўлена!\n";
+    std::cout << "Race is added!\n";
 }
