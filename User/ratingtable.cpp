@@ -66,9 +66,11 @@ void RatingTable::sortByPoints()
 
 void RatingTable::search(std::string& name) const
 {
+    bool is_find = false;
+
     for (RatingRow* ptrRow : vectRatingRows)
     {
-        if (ptrRow->getName() == name)
+        if (ptrRow->getName().find(name) == 0 && !is_find)
         {
             std::cout << "\n================================================================================\n";
             std::cout << std::setw(15) << "Contestant";
@@ -79,12 +81,19 @@ void RatingTable::search(std::string& name) const
             }
             std::cout << std::setw(15) << "Points" << std::endl;
             std::cout << "================================================================================\n";
+
+            is_find = true;
+        }
+        if (ptrRow->getName().find(name) == 0 && is_find)
+        {
             ptrRow->display();
             std::cout << "--------------------------------------------------------------------------------\n";
-            return;
         }
     }
-    std::cout << "--------------------------------------------------------------------------------\n";
-    std::cout << name << " is not found.\n";
-    std::cout << "--------------------------------------------------------------------------------\n";
+    if (!is_find)
+    {
+        std::cout << "--------------------------------------------------------------------------------\n";
+        std::cout << name << " is not found.\n";
+        std::cout << "--------------------------------------------------------------------------------\n";
+    }
 }
