@@ -65,7 +65,7 @@ std::set<User*, CompareUsers>& UserList::getSetPtrUsers()
 void UserList::readFromFile()
 {
     std::ifstream infile;
-    infile.open("users.dat", std::ios::binary);
+    infile.open("../users.dat", std::ios::binary);
 
     if (!infile.is_open())
     {
@@ -93,7 +93,7 @@ void UserList::readFromFile()
 void UserList::writeToFile() const
 {
     std::ofstream outfile;
-    outfile.open("users.dat", std::ios::binary);
+    outfile.open("../users.dat", std::ios::binary);
     unsigned numberOfUser = setPtrUsers.size();
     outfile.write(reinterpret_cast<const char*>(&numberOfUser), sizeof(numberOfUser));
     for (auto ptrUser : setPtrUsers)

@@ -83,7 +83,7 @@ std::vector<Race *> &RaceList::getVectPtrRaces()
 void RaceList::readFromFile()
 {
     std::ifstream infile;
-    infile.open("races.dat", std::ios::binary);
+    infile.open("../races.dat", std::ios::binary);
 
     if (!infile.is_open())
     {
@@ -112,7 +112,7 @@ void RaceList::readFromFile()
 void RaceList::writeToFile() const
 {
     std::ofstream outfile;
-    outfile.open("races.dat", std::ios::binary);
+    outfile.open("../races.dat", std::ios::binary);
     unsigned numberOfRaces= vectPtrRaces.size();
     outfile.write(reinterpret_cast<const char*>(&numberOfRaces), sizeof(numberOfRaces));
     for (Race* ptrRace : vectPtrRaces)

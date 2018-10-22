@@ -73,7 +73,7 @@ std::set<Contestant *, CompareContestants> &ContestantList::getSetPtrContestants
 void ContestantList::readFromFile()
 {
     std::ifstream infile;
-    infile.open("contestants.dat", std::ios::binary);
+    infile.open("../contestants.dat", std::ios::binary);
 
     if (!infile.is_open())
     {
@@ -101,7 +101,7 @@ void ContestantList::readFromFile()
 void ContestantList::writeToFile() const
 {
     std::ofstream outfile;
-    outfile.open("contestants.dat", std::ios::binary);
+    outfile.open("../contestants.dat", std::ios::binary);
     unsigned numberOfContestant = setPtrContestants.size();
     outfile.write(reinterpret_cast<const char*>(&numberOfContestant), sizeof(numberOfContestant));
     for (auto ptrContestant : setPtrContestants)
