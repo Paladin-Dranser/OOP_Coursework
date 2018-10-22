@@ -32,6 +32,7 @@ void SignInScreen::interact()
 
         if ( signIn() )
         {
+            std::cout << "-----------------------------------------------\n";
             ptrUserInterface = new UserInterface();
             ptrUserInterface->interact();
             return;
