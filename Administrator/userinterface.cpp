@@ -15,6 +15,7 @@ UserInterface::~UserInterface()
 {
     delete ptrContestantList;
     delete ptrRaceList;
+	delete ptrUserList;
 }
 
 void UserInterface::interact()
