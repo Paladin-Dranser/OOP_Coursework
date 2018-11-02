@@ -10,8 +10,9 @@ class SignInScreen
 public:
     SignInScreen();
     ~SignInScreen();
-    bool signIn() const;
     void interact();
+private:
+    bool signIn() const;
 private:
     std::string login;
     std::string password;

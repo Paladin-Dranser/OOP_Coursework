@@ -21,7 +21,6 @@ public:
     void readFromFile();
     void writeToFile() const;
 private:
-private:
     std::set<User*, CompareUsers> setPtrUsers;
 
 };

@@ -15,7 +15,7 @@ RatingRow::RatingRow(Contestant *ptrCont, RaceList *ptrRaceLst) :
 void RatingRow::display() const
 {
     unsigned all_points = 0;
-    std::cout << std::setw(15) << ptrContestant->getName();
+    std::cout << std::setw(15 + ptrContestant->getName().length() / 2) << ptrContestant->getName();
     for (unsigned points : vectPointsForRaces)
     {
         std::cout << std::setw(15) << points;

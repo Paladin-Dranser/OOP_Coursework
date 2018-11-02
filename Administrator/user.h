@@ -12,7 +12,7 @@ public:
 
     void display() const;
     void readFromFile(std::istream& in);
-    void writeToFile(std::ostream& out);
+    void writeToFile(std::ostream& out) const;
 
     void setLogin(std::string);
     void setPassword(std::string);

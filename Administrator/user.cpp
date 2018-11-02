@@ -16,7 +16,8 @@ User::User(std::string l, std::string p) :
 
 void User::display() const
 {
-    std::cout << "Login: " << login << "\tPassword: " << password << std::endl;
+    //std::cout << "Login: " << login << "\tPassword: " << password << std::endl;
+    std::cout << "Імя: " << login << "\tПароль: " << password << std::endl;
 }
 
 void User::setLogin(std::string l)
@@ -45,7 +46,7 @@ void User::readFromFile(std::istream& in)
     delete[] buf;
 }
 
-void User::writeToFile(std::ostream& out)
+void User::writeToFile(std::ostream& out) const
 {
     unsigned len = login.size() + 1;
     out.write(reinterpret_cast<const char*>(&len), sizeof(len));

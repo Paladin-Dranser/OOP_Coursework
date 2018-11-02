@@ -47,7 +47,7 @@ void Contestant::readFromFile(std::istream& in)
     delete[] buf;
 }
 
-void Contestant::writeToFile(std::ostream& out)
+void Contestant::writeToFile(std::ostream& out) const
 {
     unsigned len = name.size() + 1;
     out.write(reinterpret_cast<const char*>(&len), sizeof(len));

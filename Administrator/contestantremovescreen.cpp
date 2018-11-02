@@ -14,7 +14,8 @@ void ContestantRemoveScreen::removeContestant()
 {
     ptrContestantList->display();
 
-    std::cout << "Enter contestant's id to remove him: ";
+    //std::cout << "Enter contestant's id to remove him: ";
+    std::cout << "Калі ласка, увядзіце нумар спаборніка, якога жадаеце выдаліць: ";
     unsigned id;
     std::cin >> id;
     std::cin.ignore(80, '\n');

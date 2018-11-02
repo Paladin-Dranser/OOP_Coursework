@@ -18,7 +18,7 @@ public:
     void setCountry(std::string);
 
     void readFromFile(std::istream& in);
-    void writeToFile(std::ostream& out);
+    void writeToFile(std::ostream& out) const;
 
     friend bool operator<(const Contestant&, const Contestant&);
     friend bool operator==(const Contestant&, const Contestant&);

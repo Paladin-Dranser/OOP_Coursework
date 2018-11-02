@@ -12,7 +12,8 @@ void RaceEditScreen::editRace()
 {
     ptrRaceList->display();
 
-    std::cout << "Enter id of race to edit its data: ";
+    //std::cout << "Enter id of race to edit its data: ";
+    std::cout << "Калі ласка, увядзіце нумар гонкі, звесткі пра якую будуць рэдагавацца: ";
     unsigned id;
     std::cin >> id;
     std::cin.ignore(80, '\n');
