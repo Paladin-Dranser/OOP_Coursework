@@ -24,7 +24,6 @@ void RaceList::display() const
 {
     if ( vectPtrRaces.empty() )
     {
-        //std::cout << "***No races***\n";
         std::cout << "*** Няма гонак ***\n";
     }
     else
@@ -46,7 +45,6 @@ void RaceList::insertRace(Race* ptrRace)
 void RaceList::editRace(Race* race)
 {
     std::string type;
-    //std::cout << "Enter a new type of race: ";
     std::cout << "Калі ласка, увядзіце новы тып гонкі: ";
     getLine(type);
 
@@ -89,7 +87,6 @@ void RaceList::readFromFile()
 
     if (!infile.is_open())
     {
-        //std::cout << "Error! A database of races doesn't exist!\n";
         std::cout << "Памылка! База даных гонак не існуе!\n";
     }
     else

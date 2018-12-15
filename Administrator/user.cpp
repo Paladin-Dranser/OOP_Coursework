@@ -16,7 +16,6 @@ User::User(std::string l, std::string p) :
 
 void User::display() const
 {
-    //std::cout << "Login: " << login << "\tPassword: " << password << std::endl;
     std::cout << "Імя: " << login << "\tПароль: " << password << std::endl;
 }
 

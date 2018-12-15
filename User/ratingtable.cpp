@@ -28,13 +28,13 @@ RatingTable::~RatingTable()
 void RatingTable::display() const
 {
     std::cout << "\n================================================================================\n";
-    std::cout << std::setw(15) << "Contestant";
+    std::cout << std::setw(15 + 9) << "Спаборнік";
     for ( Race* race : ptrRaceList->getVectPtrRaces() )
     {
         std::string temp = race->getType();
-        std::cout << std::setw(15) << temp;
+        std::cout << std::setw(15 + temp.length() / 2) << temp;
     }
-    std::cout << std::setw(15) << "Points" << std::endl;
+    std::cout << std::setw(15 + 4) << "Балы" << std::endl;
 
     std::cout << "================================================================================\n";
 
@@ -73,13 +73,13 @@ void RatingTable::search(std::string& name) const
         if (ptrRow->getName().find(name) == 0 && !is_find)
         {
             std::cout << "\n================================================================================\n";
-            std::cout << std::setw(15) << "Contestant";
+            std::cout << std::setw(15 + 9) << "Спаборнік";
             for ( Race* race : ptrRaceList->getVectPtrRaces() )
             {
                 std::string temp = race->getType();
-                std::cout << std::setw(15) << temp;
+                std::cout << std::setw(15 + temp.length() / 2) << temp;
             }
-            std::cout << std::setw(15) << "Points" << std::endl;
+            std::cout << std::setw(15 + 4) << "Балы" << std::endl;
             std::cout << "================================================================================\n";
 
             is_find = true;
@@ -93,7 +93,8 @@ void RatingTable::search(std::string& name) const
     if (!is_find)
     {
         std::cout << "--------------------------------------------------------------------------------\n";
-        std::cout << name << " is not found.\n";
+        std::cout << name << " не знойдзены.\n";
         std::cout << "--------------------------------------------------------------------------------\n";
     }
+    std::cin.get();
 }

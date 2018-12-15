@@ -13,7 +13,7 @@ ContestantSearchScreen::ContestantSearchScreen(RatingTable *ptrRatingTbl) :
 
 void ContestantSearchScreen::searchContestant()
 {
-    std::cout << "Enter contestant's name to find him: ";
+    std::cout << "Калі ласка, увядзіце імя спаборніка для пошуку: ";
     std::string name;
     getLine(name);
 

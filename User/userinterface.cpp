@@ -27,42 +27,56 @@ void UserInterface::interact()
 
     while (true)
     {
-        std::cout << "Please, press a key:\n"
-                  << "\t'd' to display data;\n"
-                  << "\t's' to search data;\n"
-                  << "\t'q' to exit;\n";
+        system("clear");
+        std::cout << "Калі ласка, абярыце адну з наступных аперацый:\n"
+                  << "1) Паказаць інфармацыю;\n"
+                  << "2) Пошук інфармацыі;\n"
+                  << "3) Выйсці;\n"
+                  << "\nКалі ласка, увядзіце нумар аперацыі: ";
         ch = getChar();
 
-        if (ch == 'd')
+        if (ch == '1')
         {
-            std::cout << "'d' to display The World Cup Rating Table;\n"
-                      << "'a' to sort The World Cup Rating Table by contestant's name;\n"
-                      << "'p' to sort The World Cup Rating Table by points;\n";
+            system("clear");
+            std::cout << "1) Паказаць табліцу рэйтынгу Кубку Свету;\n"
+                      << "2) Сартыраваць табліцу рэйтынгу Кубку Свету паводле імёнаў;\n"
+                      << "3) Сартыраваць табліцу рэйтынгу Кубку Свету паводле балаў;\n"
+                      << "4) Вярнуцца назад;"
+                      << "\nКалі ласка, увядзіце нумар аперацыі: ";
             ch = getChar();
 
             ptrRatingTable = new RatingTable(ptrContestantList, ptrRaceList);
 
             switch (ch)
             {
-            case 'd':
+            case '1':
+                system("clear");
                 ptrRatingTable->display();
+                std::cin.get();
                 break;
-            case 'a':
+            case '2':
+                system("clear");
                 ptrRatingTable->sortByAlphabetical();
                 ptrRatingTable->display();
+                std::cin.get();
                 break;
-            case 'p':
+            case '3':
+                system("clear");
                 ptrRatingTable->sortByPoints();
                 ptrRatingTable->display();
+                std::cin.get();
+                break;
+            case '4':
                 break;
             default:
-                std::cout << "Incorrect function.\n";
+                std::cout << "Невядомая функцыя!\n";
+                std::cin.get();
                 break;
             }
 
             delete ptrRatingTable;
         }
-        else if (ch == 's')
+        else if (ch == '2')
         {
             ptrRatingTable = new RatingTable(ptrContestantList, ptrRaceList);
 
@@ -71,13 +85,13 @@ void UserInterface::interact()
 
             delete ptrRatingTable;
         }
-        else if (ch == 'q')
+        else if (ch == '3')
         {
             return;
         }
         else
         {
-            std::cout << "Incorrect function.\n";
+            std::cout << "Невядомая функцыя!\n";
         }
     }
 }

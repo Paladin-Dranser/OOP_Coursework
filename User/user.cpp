@@ -13,10 +13,11 @@ User::User(std::string l, std::string p) :
 {
     // emtpy;
 }
-
+/*
 void User::display() const
 {
-    std::cout << "Login: " << login << "\tPassword: " << password << std::endl;
+    //std::cout << "Login: " << login << "\tPassword: " << password << std::endl;
+    std::cout << "Логін: " << login << "\tПароль: " << password << std::endl;
 }
 
 void User::setLogin(std::string l)
@@ -28,7 +29,7 @@ void User::setPassword(std::string p)
 {
     password = p;
 }
-
+*/
 void User::readFromFile(std::istream& in)
 {
     unsigned len;
@@ -44,7 +45,7 @@ void User::readFromFile(std::istream& in)
     password = buf;
     delete[] buf;
 }
-
+/*
 void User::writeToFile(std::ostream& out)
 {
     unsigned len = login.size() + 1;
@@ -55,7 +56,7 @@ void User::writeToFile(std::ostream& out)
     out.write(reinterpret_cast<const char*>(&len), sizeof(len));
     out.write(reinterpret_cast<const char*>(password.c_str()), len);
 }
-
+*/
 
 bool operator==(const User& user1, const User& user2)
 {

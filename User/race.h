@@ -17,11 +17,6 @@ public:
     std::string getType() const;
     unsigned getContestantPoints(Contestant*) const;
     std::vector<Contestant*> getVectResult() const;
-    void setType(std::string);
-    void setResult();
-    void removeResult(Contestant*);
-
-    void writeToFile(std::ostream& out);
     void readFromFile(std::istream& in);
 
     friend std::ostream& operator<<(std::ostream&, const Race&);

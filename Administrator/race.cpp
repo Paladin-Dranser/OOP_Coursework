@@ -55,7 +55,6 @@ void Race::setResult()
     for (Contestant* contestant : ptrContestantList->getSetPtrContestants())
     {
         unsigned place;
-        //std::cout << "Contestant " << contestant->getName() << " finished: ";
         std::cout << "Спаборнік " << contestant->getName() << " фінішыраваў: ";
         std::cin >> place;
         std::cin.ignore(80, '\n');
@@ -124,19 +123,18 @@ std::ostream& operator<<(std::ostream& out, const Race& r)
 {
     out << r.type << std::endl;
 
-    //std::cout << "Result of race:\n";
     std::cout << "Вынікі гонкі:\n";
     for (unsigned i = 0; i < r.vectResult.size(); ++i)
     {
         if (i > 40)
         {
             std::cout << r.vectResult[i]->getName() << " - " << i + 1
-                      << /*"\tPoints: "*/"\tБалы: " << 0 << std::endl;
+                      << "\tБалы: " << 0 << std::endl;
         }
         else
         {
             std::cout << r.vectResult[i]->getName() << "\t-\t" << i + 1
-                      << /*"\tPoints: "*/"\tБалы: " << Race::pointsForPlace[i] << std::endl;
+                      << "\tБалы: " << Race::pointsForPlace[i] << std::endl;
         }
     }
 

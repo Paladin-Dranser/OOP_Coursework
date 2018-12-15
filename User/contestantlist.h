@@ -15,13 +15,9 @@ public:
     ContestantList();
     ~ContestantList();
     void display() const;
-    void insertContestant(Contestant*);
-    void editContestant(Contestant*);
-    void removeContestant(Contestant*);
     std::set<Contestant*, CompareContestants> & getSetPtrContestants();
 
     void readFromFile();
-    void writeToFile() const;
 private:
     std::set<Contestant*, CompareContestants> setPtrContestants;
 };

@@ -27,140 +27,172 @@ void UserInterface::interact()
 
     while (true)
     {
-        std::cout << "Please, press a key:\n"
-                  << "\t'a' to change users' information;\n"
-                  << "\t'i' to input data;\n"
-                  << "\t'e' to edit data;\n"
-                  << "\t'd' to display data;\n"
-                  << "\t'q' to exit;\n";
+        system("clear");
+        std::cout << "Калі ласка, абярыце адну з наступных аперацый:\n"
+                  << "1) Змена інфармацыі пра карыстальніка;\n"
+                  << "2) Увод новай інфармацыі (спаборніка альбо гонкі);\n"
+                  << "3) Рэдагаванне інфармацыі (спаборніка альбо гонкі);\n"
+                  << "4) Паказаць інфармацыю;\n"
+                  << "5) Выйсці;\n"
+                  << "\nКалі ласка, увядзіце нумар аперацыі: ";
         ch = getChar();
 
-        if (ch == 'a')
+        if (ch == '1')
         {
-            std::cout << "'d' to display users;\n"
-                      << "'a' to add an user;\n"
-                      << "'e' to edit an user;\n"
-                      << "'r' to remove an user;\n";
+            system("clear");
+            std::cout << "Калі ласка, выбярыце аперацыю:\n"
+                      << "1) Паказаць інфармацыю карыстальнікаў;\n"
+                      << "2) Дабавіць новага карыстальніка;\n"
+                      << "3) Рэдагаваць інфармацыю пра карыстальніка;\n"
+                      << "4) Выдаленне карыстальніка;\n"
+                      << "5) Вярнуцца назад;\n"
+                      << "\nКалі ласка, увядзіце нумар аперацыі: ";
             ch = getChar();
 
             switch (ch)
             {
-            case 'd':
+            case '1':
+                system("clear");
                 ptrUserList->display();
+                std::cin.get();
                 break;
-            case 'a':
+            case '2':
                 ptrUserInputScreen = new UserInputScreen(ptrUserList);
                 ptrUserInputScreen->getUser();
                 delete ptrUserInputScreen;
+                ptrUserList->writeToFile();
                 break;
-            case 'e':
+            case '3':
                 ptrUserEditScreen = new UserEditScreen(ptrUserList);
                 ptrUserEditScreen->editUser();
                 delete ptrUserEditScreen;
+                ptrUserList->writeToFile();
                 break;
-            case 'r':
+            case '4':
                 ptrUserRemoveScreen = new UserRemoveScreen(ptrUserList);
                 ptrUserRemoveScreen->removeUser();
                 delete ptrUserRemoveScreen;
+                ptrUserList->writeToFile();
+                break;
+            case '5':
                 break;
             default:
                 std::cout << "Невядомая функцыя!\n";
-                std::cout << "Incorrect function!\n";
                 break;
             }
         }
-        else if (ch == 'i')
+        else if (ch == '2')
         {
-            std::cout << "'c' to add a contestant;\n"
-                      << "'r' to add a race;\n";
+            system("clear");
+            std::cout << "1) Дабавіць новага спаборніка;\n"
+                      << "2) Дабавіць новую гонку;\n"
+                      << "3) Вярнуцца назад;\n"
+                      << "\nКалі ласка, увядзіце нумар аперацыі: ";
             ch = getChar();
 
             switch (ch)
             {
-            case 'c':
+            case '1':
                 ptrContestantInputScreen = new ContestantInputScreen(ptrContestantList);
                 ptrContestantInputScreen->getContestant();
                 delete ptrContestantInputScreen;
+                ptrContestantList->writeToFile();
                 break;
-            case 'r':
+            case '2':
                 ptrRaceInputScreen = new RaceInputScreen(ptrRaceList, ptrContestantList);
                 ptrRaceInputScreen->getRace();
                 delete ptrRaceInputScreen;
+                ptrRaceList->writeToFile();
+                break;
+            case '3':
                 break;
             default:
-                std::cout << "Incorrect function.\n";
+                std::cout << "Выбрана невядомая аперацыя.\n";
                 break;
             }
         }
-        else if (ch == 'e')
+        else if (ch == '3')
         {
-           std::cout << "'c' to edit contestant's data;\n"
-                     << "'r' to edit data of race;\n"
-                     << "'d' to remove contestant's data or data of race;\n";
-           ch = getChar();
-
-           switch (ch)
-           {
-           case 'c':
-               ptrContestantEditScreen = new ContestantEditScreen(ptrContestantList);
-               ptrContestantEditScreen->editContestant();
-               delete ptrContestantEditScreen;
-               break;
-           case 'r':
-               ptrRaceEditScreen = new RaceEditScreen(ptrRaceList, ptrContestantList);
-               ptrRaceEditScreen->editRace();
-               delete ptrRaceEditScreen;
-                   break;
-               case 'd':
-                   std::cout << "'c' to remove a contestant;\n"
-                             << "'r' to remove a race;\n";
-                   ch = getChar();
-                   if (ch == 'c')
-                   {
-                       ptrContestantRemoveScreen = new ContestantRemoveScreen(ptrContestantList, ptrRaceList);
-                       ptrContestantRemoveScreen->removeContestant();
-                       delete ptrContestantRemoveScreen;
-                   }
-                   else if (ch == 'r')
-                   {
-                       ptrRaceRemoveScreen = new RaceRemoveScreen(ptrRaceList);
-                       ptrRaceRemoveScreen->removeRace();
-                           delete ptrRaceRemoveScreen;
-                   }
-                   else
-                       std::cout << "Incorrect function.\n";
-                   break;
-               default:
-                   std::cout << "Incorrect function.\n";
-                   break;
-            }
-        }
-        else if (ch == 'd')
-        {
-            std::cout << "'t' to display The World Cup Rating Table;\n"
-                      << "'c' to display contestants' data;\n"
-                      << "'r' to display data of races;\n";
+            system("clear");
+            std::cout << "1) Рэдагаваць інфармацыю пра ўдзельніка;\n"
+                      << "2) Рэдагаваць інфармацыю пра гонку;\n"
+                      << "3) Выдаліць інфармацыю пра спаборніка;\n"
+                      << "4) Выдаліць інфармацыю пра гонку;\n"
+                      << "5) Вярнуцца назад;\n"
+                      << "\nКалі ласка, увядзіце нумар аперацыі: ";
             ch = getChar();
 
             switch (ch)
             {
-            case 't':
-                ptrRatingTable = new RatingTable(ptrContestantList, ptrRaceList);
-                ptrRatingTable->display();
-                delete ptrRatingTable;
+            case '1':
+                ptrContestantEditScreen = new ContestantEditScreen(ptrContestantList);
+                ptrContestantEditScreen->editContestant();
+                delete ptrContestantEditScreen;
+                ptrContestantList->writeToFile();
                 break;
-            case 'c':
-                ptrContestantList->display();
+            case '2':
+                ptrRaceEditScreen = new RaceEditScreen(ptrRaceList, ptrContestantList);
+                ptrRaceEditScreen->editRace();
+                delete ptrRaceEditScreen;
+                ptrRaceList->writeToFile();
                 break;
-            case 'r':
-                ptrRaceList->display();
+            case '3':
+                ptrContestantRemoveScreen = new ContestantRemoveScreen(ptrContestantList, ptrRaceList);
+                ptrContestantRemoveScreen->removeContestant();
+                delete ptrContestantRemoveScreen;
+                ptrContestantList->writeToFile();
+                break;
+            case '4':
+                ptrRaceRemoveScreen = new RaceRemoveScreen(ptrRaceList);
+                ptrRaceRemoveScreen->removeRace();
+                delete ptrRaceRemoveScreen;
+                ptrRaceList->writeToFile();
+                break;
+            case '5':
                 break;
             default:
-                std::cout << "Incorrect function.\n";
+                std::cout << "Выбрана невядомая аперацыя.\n";
                 break;
             }
         }
-        else if (ch == 'q')
+        else if (ch == '4')
+        {
+            system("clear");
+            std::cout << "1) Паказаць рэйтынг Кубку Свету;\n"
+                      << "2) Паказаць інфармацыю па спаборніках;\n"
+                      << "3) Паказаць інфармацыю па гонках;\n"
+                      << "4) Вярнуцца назад;\n"
+                      << "\nКалі ласка, увядзіце нумар аперацыі: ";
+            ch = getChar();
+
+            switch (ch)
+            {
+            case '1':
+                system("clear");
+                ptrRatingTable = new RatingTable(ptrContestantList, ptrRaceList);
+                ptrRatingTable->display();
+                delete ptrRatingTable;
+                std::cin.get();
+                break;
+            case '2':
+                system("clear");
+                ptrContestantList->display();
+                std::cin.get();
+                break;
+            case '3':
+                system("clear");
+                ptrRaceList->display();
+                std::cin.get();
+                break;
+            case '4':
+                break;
+            default:
+                std::cout << "Выбрана невядомая аперацыя.\n";
+                std::cin.get();
+                break;
+            }
+        }
+        else if (ch == '5')
         {
             ptrContestantList->writeToFile();
             ptrRaceList->writeToFile();
@@ -170,7 +202,8 @@ void UserInterface::interact()
         }
         else
         {
-            std::cout << "Incorrect function.\n";
+            std::cout << "Выбрана невядомая аперацыя.\n";
+            std::cin.get();
         }
     }
 }

@@ -38,13 +38,11 @@ void UserList::addUser(User* ptrUser)
 
 void UserList::editUser(User* ptrUser)
 {
-    //std::cout << "Enter a new login: ";
     std::cout << "Калі ласка, увядзіце новае імя карыстальніка: ";
     std::string login;
     getLine(login);
     ptrUser->setLogin(login);
 
-    //std::cout << "Enter a new password: ";
     std::cout << "Калі ласка, увядзіце новы пароль: ";
     std::string password;
     getLine(password);
@@ -71,7 +69,6 @@ void UserList::readFromFile()
 
     if (!infile.is_open())
     {
-        //std::cout << "Error! A database of users doesn't exist!\n";
         std::cout << "Памылка! Базы даных карыстальнікаў не існуе!\n";
     }
     else

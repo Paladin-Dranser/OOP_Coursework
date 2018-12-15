@@ -14,11 +14,7 @@ public:
     ~Contestant();
 
     std::string getName() const;
-    void setName(std::string);
-    void setCountry(std::string);
-
     void readFromFile(std::istream& in);
-    void writeToFile(std::ostream& out);
 
     friend bool operator<(const Contestant&, const Contestant&);
     friend bool operator==(const Contestant&, const Contestant&);

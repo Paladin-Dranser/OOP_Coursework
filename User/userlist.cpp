@@ -19,7 +19,7 @@ UserList::~UserList()
         setPtrUsers.erase(iter);
     }
 }
-
+/*
 void UserList::display() const
 {
     unsigned count = 1;
@@ -38,7 +38,8 @@ void UserList::addUser(User* ptrUser)
 
 void UserList::editUser(User* ptrUser)
 {
-    std::cout << "Enter a new login: ";
+    //std::cout << "Enter a new login: ";
+    std::cout << "Калі ласка, увядзіце новы логін: ";
     std::string login;
     getLine(login);
     ptrUser->setLogin(login);
@@ -56,7 +57,7 @@ void UserList::removeUser(User * ptrUser)
     delete ptrUser;
     setPtrUsers.erase(iter);
 }
-
+*/
 std::set<User*, CompareUsers>& UserList::getSetPtrUsers()
 {
     return setPtrUsers;
@@ -69,7 +70,7 @@ void UserList::readFromFile()
 
     if (!infile.is_open())
     {
-        std::cout << "Error! A database of users doesn't exist!\n";
+        std::cout << "Памылка! База дадзеных карыстальнікаў не існуе!\n";
     }
     else
     {
@@ -89,7 +90,7 @@ void UserList::readFromFile()
     }
     infile.close();
 }
-
+/*
 void UserList::writeToFile() const
 {
     std::ofstream outfile;
@@ -102,3 +103,4 @@ void UserList::writeToFile() const
     }
     outfile.close();
 }
+*/

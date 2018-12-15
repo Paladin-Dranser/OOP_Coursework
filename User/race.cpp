@@ -43,7 +43,7 @@ std::vector<Contestant*> Race::getVectResult() const
 {
     return vectResult;
 }
-
+/*
 void Race::setType(std::string t)
 {
     type = t;
@@ -55,7 +55,7 @@ void Race::setResult()
     for (Contestant* contestant : ptrContestantList->getSetPtrContestants())
     {
         unsigned place;
-        std::cout << "Contestant " << contestant->getName() << " finished: ";
+        std::cout << "Спаборнік " << contestant->getName() << " фінішыраваў: ";
         std::cin >> place;
         std::cin.ignore(80, '\n');
         vectResult.at(place - 1) = contestant;
@@ -90,7 +90,7 @@ void Race::writeToFile(std::ostream& out)
         cont->writeToFile(out);
     }
 }
-
+*/
 void Race::readFromFile(std::istream& in)
 {
     // read "type" from file;
@@ -123,18 +123,18 @@ std::ostream& operator<<(std::ostream& out, const Race& r)
 {
     out << r.type << std::endl;
 
-    std::cout << "Result of race:\n";
+    std::cout << "Вынікі гонкі:\n";
     for (unsigned i = 0; i < r.vectResult.size(); ++i)
     {
         if (i > 40)
         {
             std::cout << r.vectResult[i]->getName() << " - " << i + 1
-                      << "\tPoints: " << 0 << std::endl;
+                      << "\tБалы: " << 0 << std::endl;
         }
         else
         {
-            std::cout << r.vectResult[i]->getName() << "\t-\t" << i + 1
-                      << "\tPoints: " << Race::pointsForPlace[i] << std::endl;
+            std::cout << r.vectResult[i]->getName() << " - " << i + 1
+                      << "\tБалы: " << Race::pointsForPlace[i] << std::endl;
         }
     }
 

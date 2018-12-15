@@ -20,7 +20,7 @@ std::string Contestant::getName() const
 {
     return name;
 }
-
+/*
 void Contestant::setName(std::string n)
 {
     name = n;
@@ -30,7 +30,7 @@ void Contestant::setCountry(std::string c)
 {
     country = c;
 }
-
+*/
 void Contestant::readFromFile(std::istream& in)
 {
     unsigned len;
@@ -46,7 +46,7 @@ void Contestant::readFromFile(std::istream& in)
     country = buf;
     delete[] buf;
 }
-
+/*
 void Contestant::writeToFile(std::ostream& out)
 {
     unsigned len = name.size() + 1;
@@ -57,7 +57,7 @@ void Contestant::writeToFile(std::ostream& out)
     out.write(reinterpret_cast<const char*>(&len), sizeof(len));
     out.write(reinterpret_cast<const char*>(country.c_str()), len);
 }
-
+*/
 bool operator<(const Contestant& cont1, const Contestant& cont2)
 {
     return cont1.name < cont2.name;

@@ -14,16 +14,27 @@ void UserEditScreen::editUser()
 {
     ptrUserList->display();
 
-    //std::cout << "Enter a number of user which data will be edited: ";
     std::cout << "Калі ласка, увядзіце нумар карыстальніка, звесткі пра якога будуць рэдагавацца: ";
     unsigned id;
     std::cin >> id;
+    if ( std::cin.fail() )
+    {
+        std::cin.clear();
+        std::cin.ignore(80, '\n');
+        throw("Памылка! Праграма будзе зачыненая! Неабходна ўводзіць толькі лік!");
+    }
     std::cin.ignore(80, '\n');
+
+    if (id > ptrUserList->getSetPtrUsers().size() )
+    {
+        std::cout << "Уведзены няправільны нумар;\n";
+        std::cin.get();
+        return;
+    }
 
     auto iter = ptrUserList->getSetPtrUsers().begin();
     std::advance(iter, id - 1);
 
     ptrUserList->editUser(*iter);
-    //std::cout << "User's data is edited.\n";
     std::cout << "Звесткі пра карыстальніка паспяхова зменены.\n";
 }

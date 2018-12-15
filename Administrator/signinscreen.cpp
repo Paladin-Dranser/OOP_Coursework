@@ -24,12 +24,9 @@ void SignInScreen::interact()
 {
     while (true)
     {
-        //std::cout << "--------------------Sign in--------------------\n";
         std::cout << "-------------------- Уваход --------------------\n";
-        //std::cout << "Login: ";
         std::cout << "Імя: ";
         getLine(login);
-        //std::cout << "Password: ";
         std::cout << "Пароль: ";
         getLine(password);
 
@@ -37,12 +34,20 @@ void SignInScreen::interact()
         {
             std::cout << "-----------------------------------------------\n";
             ptrUserInterface = new UserInterface();
-            ptrUserInterface->interact();
+
+            try
+            {
+                ptrUserInterface->interact();
+            }
+            catch (const char* msg)
+            {
+                std::cout << msg << std::endl;
+            }
+
             return;
         }
         else
         {
-            //std::cout << "Wrong login or password.\n";
             std::cout << "Памылка! Уведзеныя імя і/альбо пароль некарэктныя.\n";
         }
     }
